@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quotes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="main">
+        <div class="innerbox">
+            <div class="quoteBox">
+                <div>
+                    <h1>This is your Quotes</h1>
+                    <h1 class="author"> - </h1>
+                </div>
+                <button class="getNow">Get New</button>
+                <button><i class="twitter fa-brands fa-square-twitter fa-bounce"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <script>
+        let api = 'https://type.fit/api/quotes';
+
+        let quote = document.getElementsByTagName('h1')[0];
+        let author = document.getElementsByTagName('h1')[1];
+        let getNew = document.getElementsByTagName('button')[0];
+        let twitter = document.getElementsByTagName('button')[1];
+
+        let response = [];
+        let index = Math.floor(Math.random() * 16);
+        const getQuotes = async () => {
+            try {
+                const data = await fetch(api);
+                response = await data.json();
+                console.log(response);
+                quote.innerHTML = response[index].text;
+                let a = response[index].author.split(',')[0] == 'type.fit' ? 'Unknown' : response[index].author.split(',')[0];
+                author.innerHTML = " - "+a;
+            } catch (error) {
+                console.log(error);
+            }
+        }
+        getQuotes();
+
+        getNew.addEventListener('click', () => {
+            let changedIndex = Math.floor(Math.random() * 16)
+            while (changedIndex === index) {
+                changedIndex = Math.floor(Math.random() * 16);
+            }
+            index = changedIndex;
+            getQuotes();
+        })
+        twitter.addEventListener('click', tweetPost);
+        function tweetPost() {
+            window.open(`https://twitter.com/intent/tweet?text=${quote.innerText + '  -  ' + author.innerText}`);
+        }
+    </script>
+</body>
+
+</html>

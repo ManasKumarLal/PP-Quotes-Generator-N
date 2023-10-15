@@ -1,0 +1,129 @@
+* {
+    padding: 0px;
+    margin: 0px;
+    box-sizing: border-box;
+}
+
+body,
+html {
+    width: 100%;
+    height: 100%;
+    background-color: #343541;
+}
+
+.main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.innerbox {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 50px 100px;
+    border-radius: 20px;
+    background-color: #444654;
+    box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+}
+
+.quoteBox {
+    width: 800px;
+    height: 400px;
+    background-color: aliceblue;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-direction: column;
+    position: relative;
+    border-radius: 20px;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+}
+
+.quoteBox div {
+    /* background-color: red; */
+    text-align: justify;
+    margin: 70px 80px;
+    font-size: 20px;
+    display: flex;
+    gap: 20px;
+    flex-direction: column;
+    align-items: end;
+}
+
+.author {
+    /* background-color: blue; */
+    margin-top: 40px;
+    width: fit-content;
+    text-align: right;
+    color: brown;
+    font-weight: 100;
+}
+
+.getNow {
+    background-color: #000000;
+    color: white;
+    font-size: 30px;
+    padding: 10px 20px;
+    width: 100%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
+    border: none;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px, rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+    transition-timing-function: cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition-duration: .2s;
+    transition-property: all;
+}
+
+.getNow:active {
+    color: rgb(223, 180, 180);
+}
+
+.quoteBox> :last-child {
+    background-color: transparent;
+    border: none;
+    position: absolute;
+    right: 10px;
+    top: 5px;
+}
+
+.twitter {
+    font-size: 40px;
+}
+
+
+
+@media (max-width:1060px){
+    .innerbox{
+        width: 100%;
+        height: 100%;
+        border-radius: 0px;
+        padding: 0px;
+    }
+    .quoteBox{
+        height: 60%;
+        width: 90%;
+    }
+    .quoteBox div {
+        margin: 70px 90px;
+        font-size: 15px;
+    }
+    .getNow {
+        padding: 80px 0px;
+    }
+}
+@media (max-width:500px){
+    .quoteBox{
+        height: 90%;
+    }
+    .quoteBox div {
+        margin: 100px 20px;
+        font-size: 13px;
+    }
+    .getNow {
+        font-size: 25px;
+        padding: 120px 0px;
+    }
+}
