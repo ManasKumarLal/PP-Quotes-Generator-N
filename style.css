@@ -119,6 +119,7 @@ html {
         height: 90%;
     }
     .quoteBox div {
+        text-align: center;
         margin: 100px 20px;
         font-size: 13px;
     }
